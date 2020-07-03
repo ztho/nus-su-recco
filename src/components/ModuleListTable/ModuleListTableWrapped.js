@@ -57,7 +57,7 @@ export class ModuleListTableWrapped extends Component {
             <Divider />
             {moduleList.length !== 0 ? 
             <Fade in ={true} timeout = {500}>
-            <CardContent className ={classes.bottomActions}>
+            <CardActions className ={classes.bottomActions}>
                 <Grid container justify ="flex-end" spacing ={2} alignItems = "center"> 
                     <Grid item>
                         <ClearAllButton />
@@ -72,7 +72,7 @@ export class ModuleListTableWrapped extends Component {
                         <ModuleListModal />
                     </Grid>
                 </Grid>
-            </CardContent></Fade> : null }
+            </CardActions></Fade> : null }
       </Card> 
         )
     }
