@@ -31,7 +31,7 @@ const useStyles = {
     },
     bottomActions: {
         justifyContent: 'flex-end',
-        height: 50
+        //height: 50
     },
 }
 export class ModuleListTableWrapped extends Component {
@@ -57,7 +57,7 @@ export class ModuleListTableWrapped extends Component {
             <Divider />
             {moduleList.length !== 0 ? 
             <Fade in ={true} timeout = {500}>
-            <CardActions className ={classes.bottomActions}>
+            <CardContent className ={classes.bottomActions}>
                 <Grid container justify ="flex-end" spacing ={2} alignItems = "center"> 
                     <Grid item>
                         <ClearAllButton />
@@ -72,7 +72,7 @@ export class ModuleListTableWrapped extends Component {
                         <ModuleListModal />
                     </Grid>
                 </Grid>
-            </CardActions></Fade> : null }
+            </CardContent></Fade> : null }
       </Card> 
         )
     }
