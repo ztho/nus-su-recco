@@ -198,11 +198,11 @@ class ModuleListTable extends Component {
               <Typography color = "textPrimary">{mod[y.prop]}</Typography>)}
             </TableCell>
           ))}
-          <TableCell width = "10%"> {curEditing ? 
+          <TableCell width = "5%"> {curEditing ? 
             (<IconButton  onClick={() => this.stopEditing(mod, i)}><CheckIcon /></IconButton>) :
             (<IconButton onClick = {() => this.startEditing(i)} ><EditIcon /></IconButton>)}
           </TableCell>
-          <TableCell width = "10%"> 
+          <TableCell width = "5%"> 
             <IconButton onClick = {() => this.handleRemove(mod)}>
               <DeleteIcon />
             </IconButton>

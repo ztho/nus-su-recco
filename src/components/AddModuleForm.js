@@ -182,14 +182,13 @@ class AddModuleForm extends React.Component {
   render() {
     const {classes} = this.props
     return (
-      <form className = "add-module-form" autoComplete ="off">
-        <Grid container spacing ={2} alignItems = "center" direction = "row" justify = "flex-end">
+      <form autoComplete ="off">
+        <Grid container spacing ={2} alignItems = "center" direction = "row" justify = "flex-start">
           <Grid item>
             <Autocomplete
                 freeSolo = {true}
                 autoHighlight ={true}
                 disableClearable={true}
-                id ="standard-error-helper-text"
                 onChange = {(e, val) => this.onModuleCodeChange(e, val)}
                 inputValue = {this.state.moduleCodeInput}
                 onInputChange = {(e, val) => this.onModuleInputValueChange(e, val)}
@@ -201,6 +200,7 @@ class AddModuleForm extends React.Component {
                     {...params}
                     error = {this.state.errors.isError && this.state.errors.moduleCodeError !== "" }
                     helperText = {this.state.errors.moduleCodeError}
+                    autoComplete="off"
                     label= "Module Code"
                     name = "moduleCode"
                     value = {this.state.moduleCode}
@@ -210,7 +210,7 @@ class AddModuleForm extends React.Component {
                )}
               />
           </Grid>
-          <Grid item xs = {3}>  
+          <Grid item>  
             <TextField
               error = {this.state.errors.isError && this.state.errors.moduleCreditError !== "" }
               name="moduleCredit"
@@ -247,7 +247,7 @@ class AddModuleForm extends React.Component {
             </Button>
         </Grid>
         </Grid>
-      </form>
+        </form>
     );
   }
 }

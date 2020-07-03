@@ -5,6 +5,7 @@ import { Card,
         CardContent,
         CardActions,
         Grid,
+        Typography,
         Fade,
         Divider} from "@material-ui/core"
 import { withStyles } from '@material-ui/styles';
@@ -23,12 +24,7 @@ const useStyles = {
         transition: '0.4s',
         '&:hover': { 
             borderColor: "#5B9FED"
-        } 
-    },
-    cardHeader: {
-        action: {
-            padding: "20"
-        }
+        },
     },
     cardContent: {
         padding: 0
@@ -44,7 +40,16 @@ export class ModuleListTableWrapped extends Component {
         const {moduleList} = this.props.moduleList
         return (
         <Card className = {classes.cardContainer}>
-            <CardHeader title ="Module List"  titleTypographyProps={{variant:'h6' }} className={classes.cardHeader} action={<AddModuleForm />} />
+            <CardContent>
+                <Grid container justify="space-between" alignItems="center">
+                    <Grid item>
+                        <Typography variant={"h6"}>Module List</Typography>
+                    </Grid>
+                    <Grid item>
+                        <AddModuleForm />
+                    </Grid>
+                </Grid>
+            </CardContent>
             <Divider />
             <CardContent className = {classes.cardContent}>
                 <ModuleListTable />

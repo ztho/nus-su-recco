@@ -211,7 +211,7 @@ class ResultsTable extends Component {
                             titleTypographyProps={{variant:'h6' }}
                             />
                 <Divider />
-                {candidatureMC === -1 || simResults.length === 0? null :
+                {candidatureMC === -1 || simResults.length === 0 ? null :
                 <Fade in={true} timeout={500}>
                 <CardContent className = {classes.cardContent}>  
                     <TableContainer>
@@ -254,9 +254,10 @@ class ResultsTable extends Component {
                         </Typography>
                     </Fade>}
                 </CardContent>}
+                {candidatureMC === -1 || simResults.length === 0 ? null :
                 <CardActions className ={classes.bottomActions}>
                     <DownloadSimResultsButton />
-                </CardActions>
+                </CardActions>}
                 </Card>
         )
     }

@@ -19,12 +19,12 @@ class App extends Component {
       <Provider store = {store}>
       <div className="App">
         <AppNavBar />
-        <div style={{ padding: 20, paddingTop:0 }}>
+        <div style={{ padding: 10, paddingTop:0 }}>
         <Grid container spacing = {3} style={{paddingLeft: 10, paddingRight: 10}} alignItems="stretch"> {/*Main container*/}
-          <Grid item lg={8} md ={12} xl={9} xs={12} >
+          <Grid item lg={9} md ={12} xl={9} xs={12} >
             <ModuleListTableWrapped />
           </Grid>
-          <Grid container item lg={4} md={12} xl={3} xs={12} spacing ={3} alignItems="stretch"> 
+          <Grid container item lg={3} md={12} xl={3} xs={12} spacing ={3} alignItems="stretch"> 
             <Grid item lg ={12} md = {6} xl = {12} xs = {12} >
               <CurrentReportCard />
             </Grid>
