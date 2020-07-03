@@ -16,11 +16,12 @@ import { Table,
     Fade} from "@material-ui/core"
 import ClearIcon from '@material-ui/icons/Clear';
 import DoneIcon from '@material-ui/icons/Done';
+import DownloadSimResultsButton from "./DownloadSimResultsButton"
+import Calculations from "../calculations/Calculations"
 import DataFrame from "dataframe-js";
 import {connect} from "react-redux"
 import { withStyles } from '@material-ui/styles';
 import {getModuleList, removeCase, reinstateCase, updateSim} from "../actions/moduleListActions"
-import DownloadSimResultsButton from "./DownloadSimResultsButton"
 
 const useStyles = theme => ({
     tableHeader: {
@@ -195,14 +196,14 @@ class ResultsTable extends Component {
     
     render() {
         const {classes} = this.props
-        var {simResults, simCritVal, deletedCombisSimRes} = this.props.moduleList
+        var {moduleList, simResults, simCritVal, deletedCombisSimRes} = this.props.moduleList
         const {candidatureMC} = this.props.candidateData
         var simCritValDF = new DataFrame(simCritVal, Object.keys(simCritVal))
-        var critCap = 0
+        var critCap = Calculations.getStats(moduleList).curCAP[0]
         
-        if (Object.keys(simCritVal).length !== 1) {
+        /*if (Object.keys(simCritVal).length !== 1) {
             critCap = simCritValDF.find(row => row.get("gradCap") === "Immediate CAP").select("No SU").get("No SU")
-        }
+        }*/
         return (
             <Card className ={classes.cardContainer}> 
                 <CardHeader title = "Simulated Required Results" 
