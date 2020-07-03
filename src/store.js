@@ -3,7 +3,7 @@ import thunk from "redux-thunk";
 import rootReducer from "./reducers"; //will auto call index.js
 import throttle from 'lodash.throttle'
 
-const initialState = {}; 
+//const initialState = {}; 
 
 const middleware = [thunk]; 
 

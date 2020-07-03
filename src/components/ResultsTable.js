@@ -199,7 +199,7 @@ class ResultsTable extends Component {
         const {candidatureMC} = this.props.candidateData
         var simCritValDF = new DataFrame(simCritVal, Object.keys(simCritVal))
         var critCap = 0
-        if (simCritVal.length !== 0) {
+        if (Object.keys(simCritVal).length !== 1) {
             critCap = simCritValDF.find(row => row.get("gradCap") === "Immediate CAP").select("No SU").get("No SU")
         }
         return (
@@ -231,7 +231,7 @@ class ResultsTable extends Component {
                                 {simCritValDF.listColumns().map((head, i) => 
                                 <TableCell key = {`thc-${head}`} className = {classes.tableHeader}>
                                     <Typography className = {classes.tableHeader}> {head === "gradCap" ? "Target Graduation CAP" : head}
-                                    {head !== "gradCap" ? <IconButton onClick = {() => this.removeCase(head, simResults, simCritVal)}><ClearIcon /></IconButton> : null }
+                                    {head === "gradCap" || head === "No SU" ? null : <IconButton onClick = {() => this.removeCase(head, simResults, simCritVal)}><ClearIcon /></IconButton> }
                                     </Typography>
                                 </TableCell>)}
                             </TableRow>
