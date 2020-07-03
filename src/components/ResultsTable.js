@@ -199,6 +199,7 @@ class ResultsTable extends Component {
         const {candidatureMC} = this.props.candidateData
         var simCritValDF = new DataFrame(simCritVal, Object.keys(simCritVal))
         var critCap = 0
+        
         if (Object.keys(simCritVal).length !== 1) {
             critCap = simCritValDF.find(row => row.get("gradCap") === "Immediate CAP").select("No SU").get("No SU")
         }

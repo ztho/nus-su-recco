@@ -200,7 +200,6 @@ export default class Calculations {
 
         for (var cut = 2.0; cut <= 5; cut += 0.5) {
             cutOff.push((Math.round(cut * 10)/10).toFixed(1))
-            cut += 0.5
         }
 
         for (let cut of cutOff) {
