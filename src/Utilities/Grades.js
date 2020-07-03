@@ -1,0 +1,17 @@
+export const Grades = [
+    {value: "A+", label: "A+"},
+    {value: "A", label: "A"},
+    {value: "A-", label: "A-"},
+    {value: "B+", label: "B+"},
+    {value: "B", label: "B"},
+    {value: "B-", label: "B-"},
+    {value: "C+", label: "C+"},
+    {value: "C", label: "C"},
+    {value: "D+", label: "D+"},
+    {value: "D", label: "D"},
+    {value: "F", label: "F"},
+    {value: "CS", label: "CS"},
+    {value: "CU", label: "CU"},
+    {value: "S", label: "S"},
+    {value: "U", label: "U"},
+]

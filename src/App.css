@@ -1,0 +1,28 @@
+/*.left-box {
+  float: left; 
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.add-module-form {
+  float:left; 
+  width: 80% ; 
+  padding-left: 20px; 
+}
+
+.module-list {
+  float: left;
+  padding: 40px;
+  width: 80%
+}
+
+.right-box { 
+  display: block; 
+  float: right;
+  padding: 40px;
+}
+
+.graph-center{
+  height: 20%;
+  width: 80%;
+}*/
