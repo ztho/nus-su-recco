@@ -9,11 +9,7 @@ import { GET_MOD_LIST,
 import DataFrame from "dataframe-js";
 
 const initialState = {
-    moduleList: [{moduleCode: "CS2040", moduleTitle: "Data Structures and Algorithms", moduleCredit: 4, grade: "A", su: false},
-            {moduleCode: "EC2104", moduleTitle: "Quantitative Methods for Economics",  moduleCredit: 4, grade: "A+", su: false},
-            {moduleCode: "BSP2701", moduleTitle: "Global Economy",  moduleCredit: 2, grade: "A-", su: true},
-            {moduleCode: "CS2030", moduleTitle: "Programming Methodology II", moduleCredit: 4, grade: "B", su: false},
-            {moduleCode: "UTS2709", moduleTitle: "ENERGY AND SINGAPORE: DYNAMICS, DILEMMAS AND DECISIONS", moduleCredit: 4, grade: "A-", su: true}],
+    moduleList: [],
     simResults : [],
     simCritVal : [],
     deletedCombisSimRes: [],    
