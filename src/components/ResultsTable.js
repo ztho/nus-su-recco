@@ -12,13 +12,14 @@ import { Table,
     Divider,
     Chip,
     Typography,
-    Collapse,
+    Tooltip,
     IconButton,
     Box, 
     Fade} from "@material-ui/core"
 import ClearIcon from '@material-ui/icons/Clear';
 import DoneIcon from '@material-ui/icons/Done';
 import DownloadSimResultsButton from "./DownloadSimResultsButton"
+import ResultsTableModal from "./ResultsTableModal"
 import Calculations from "../calculations/Calculations"
 import DataFrame from "dataframe-js";
 import {connect} from "react-redux"
@@ -239,7 +240,17 @@ class ResultsTable extends Component {
                                 {simCritValDF.listColumns().map((head, i) => 
                                 <TableCell key = {`thc-${head}`} className = {classes.tableHeader}>
                                     <Typography className = {classes.tableHeader}> {head === "gradCap" ? "Target Graduation CAP" : head}
-                                    {head === "gradCap" || head === "No SU" ? null : <IconButton onClick = {() => this.removeCase(head, simResults, simCritVal)}><ClearIcon /></IconButton> }
+                                    {head === "gradCap" || head === "No SU" ? null : 
+                                        <Tooltip 
+                                        title = "Hide Combination" 
+                                        placement = "bottom" 
+                                        arrow 
+                                        TransitionComponent={Fade} 
+                                        TransitionProps={{ timeout: 500 }}>
+                                        <IconButton onClick = {() => this.removeCase(head, simResults, simCritVal)}>
+                                            <ClearIcon />
+                                        </IconButton>
+                                        </Tooltip> }
                                     </Typography>
                                 </TableCell>)}
                             </TableRow>
@@ -263,6 +274,7 @@ class ResultsTable extends Component {
                 {candidatureMC === -1 || simResults.length === 0 ? null :
                 <CardActions className ={classes.bottomActions}>
                     <DownloadSimResultsButton />
+                    <ResultsTableModal />
                 </CardActions>}
                 </Card>
         )

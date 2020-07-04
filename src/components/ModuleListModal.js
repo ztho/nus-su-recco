@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
-import {Card, CardHeader, CardContent} from "@material-ui/core";
+import { Modal, 
+         Backdrop,
+         Fade,
+         Card,
+         CardHeader,
+         CardContent,
+         Tooltip,
+         IconButton } from "@material-ui/core"
 import AddModuleForm from "./AddModuleForm"; 
-import OpenInNewIcon from '@material-ui/icons/OpenInNew';
-import IconButton from '@material-ui/core/IconButton';
 import ModuleListTable from "./ModuleListTable/ModuleListTable"
-import { Modal, Backdrop, Fade } from "@material-ui/core"
+import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import { withStyles } from '@material-ui/styles';
 
 const useStyles = {
@@ -38,7 +43,16 @@ export class ModuleListModal extends Component {
         const {classes} = this.props
         return (
             <div>
-            <IconButton onClick ={() => this.toggle()}> <OpenInNewIcon/> </IconButton>
+            <Tooltip 
+                title = "Expand Table" 
+                placement = "right-start"
+                style ={{fontSize: 50}}
+                TransitionComponent={Fade} 
+                TransitionProps={{ timeout: 500 }}>
+            <IconButton onClick ={() => this.toggle()}> 
+                <OpenInNewIcon/>
+            </IconButton>
+            </Tooltip>
             <Modal 
                 open = {this.state.modal}
                 onClose ={this.toggle}

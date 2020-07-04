@@ -102,6 +102,13 @@ export class AddKeyData extends Component {
             errors.isError = true;
             errors.canMCError = "Enter Number Only";
         }
+        if (parseInt(this.state.candidatureMC) < 0) {
+            this.setState({
+                cMCerr: true, 
+                cMCerrMsg: "Candidature MC Must Be Positive"
+            })
+            errors.isError = true            
+        }
         /*if (parseInt(this.state.candidatureMC) < 120) {
             this.setState({
                 cMCerr: true, 

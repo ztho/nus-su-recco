@@ -46,7 +46,7 @@ export class SimulateButton extends Component {
                 disabled ={this.props.candidateData.candidatureMC === -1 || moduleList.length === 0}
                 className ={classes.simulateButton}>
              {this.props.candidateData.candidatureMC === -1 ? moduleList.length === 0? 
-                    "No Modules" : "Enter Candidature Data First" : "Generate Results"}
+                    "No Modules" : "Enter Candidature Data First" : "Simulate"}
             </Button>
         )
     }

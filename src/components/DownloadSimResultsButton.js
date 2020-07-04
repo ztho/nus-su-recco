@@ -47,7 +47,7 @@ export class DownloadSimResultsButton extends Component {
                 className ={classes.downloadButton}
                 startIcon={<GetAppIcon />}>
                 {simResults.length === 0? 
-                    "No Simulation Done" : <Typography variant={"button"}>Export Simulation Results</Typography>}
+                    "No Simulation Done" : <Typography variant={"button"}>Export Detailed Simulation</Typography>}
             </Button>
         )
     }
