@@ -36,7 +36,7 @@ export class SimulateButton extends Component {
 
     render() {
         const {moduleList} = this.props.moduleList 
-        const {candidatureMC, remainingSU} = this.props.candidateData.candidatureMC
+        const {candidatureMC, remainingSU} = this.props.candidateData
         const {classes} = this.props
         return (
             <Button 

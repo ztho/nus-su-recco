@@ -102,13 +102,13 @@ export class AddKeyData extends Component {
             errors.isError = true;
             errors.canMCError = "Enter Number Only";
         }
-        if (parseInt(this.state.candidatureMC) < 120) {
+        /*if (parseInt(this.state.candidatureMC) < 120) {
             this.setState({
                 cMCerr: true, 
                 cMCerrMsg: "Minimum Graduation Requirements is 120 MCs"
             })
             errors.isError = true
-        }
+        }*/
         /*if (this.state.candidatureMC === "") {
             this.setState({
                 cMCerr: false,

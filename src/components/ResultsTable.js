@@ -12,7 +12,9 @@ import { Table,
     Divider,
     Chip,
     Typography,
-    IconButton, 
+    Collapse,
+    IconButton,
+    Box, 
     Fade} from "@material-ui/core"
 import ClearIcon from '@material-ui/icons/Clear';
 import DoneIcon from '@material-ui/icons/Done';
@@ -49,6 +51,10 @@ const useStyles = theme => ({
     dataDefault: {
         textAlign: "center",
         variant : "h6"
+    },
+    dataDefaultInner: {
+        textAlign: "center",
+        variant: "h6"
     },
     keyStatsHead: {
         textAlign: "left",
@@ -145,7 +151,7 @@ const renderRow = (row, classes, critCap = 999, rowNum = 0) => (
             if (rowNum > 7 && colNum !== 0) {
                 styleClass = classes.keyStatsSubData
             }
-        } 
+        }
         return (<TableCell key ={d + colNum} className = {styleClass}>
                     <Typography className ={styleClass}>
                          {d}
@@ -208,7 +214,7 @@ class ResultsTable extends Component {
             <Card className ={classes.cardContainer}> 
                 <CardHeader title = "Simulated Required Results" 
                             className = {classes.cardHeader} 
-                            titleTypographyProps={{variant:'h6' }}
+                            titleTypographyProps={{variant:'h6'}}
                             />
                 <Divider />
                 {candidatureMC === -1 || simResults.length === 0 ? null :

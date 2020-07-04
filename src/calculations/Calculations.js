@@ -55,13 +55,14 @@ export default class Calculations {
                 cumMC += parseInt(modCre)
                 cumGP += (this.mapGradeToPoints.find({"grade": grade}).get("points")) * modCre
             } else {
-                cumNGMC += modCre
+                cumNGMC += parseInt(modCre)
             }
         }
         var curCAP = cumGP/cumMC; 
         curCAP = (Math.round(curCAP * 100) / 100)
         if (cumMC === 0) curCAP = 0
         curCAP = curCAP.toFixed(2)
+        //console.log({cumGP, cumMC, curCAP, cumNGMC})
         return new DataFrame([{cumGP, cumMC, curCAP, cumNGMC}], ["cumGP", "cumMC", "curCAP", "cumNGMC"]).toDict()
     }
 
@@ -72,9 +73,10 @@ export default class Calculations {
      * with the gradCap required
      */
     static getReqPerf(moduleList, totalMC = 160, remainingSUs = 0, withGradCap = false) {
-        var gradCap = 1, reqAvgPerf, totalReqGradGP, totalGradedMCs
-        var res = this.getStats(moduleList); 
+        var gradCap = 2, reqAvgPerf, totalGradedMCs
+        const res = this.getStats(moduleList); 
         totalGradedMCs = totalMC - res.cumNGMC[0] - remainingSUs
+        const totalCurGP = res.cumGP[0]; //find current amount of Grade Points
         var reqRes
         if (withGradCap) {
             reqRes = new DataFrame([], ["gradCap", "reqAvgPerf"])
@@ -82,10 +84,9 @@ export default class Calculations {
             reqRes = new DataFrame([], ["reqAvgPerf"])
         }
         while (gradCap <= 5) {
-            var totalCurGP = res.cumGP[0]; //find current amount of Grade Points
-            totalReqGradGP = gradCap * (totalGradedMCs) //calculate the total amount of GP req to grad at that cap 
-            var totalReqGP = totalReqGradGP - totalCurGP //Calculate the total amount of GP to achieve with remaining mods
-            reqAvgPerf = totalReqGP / (totalMC - res.cumMC[0] - res.cumNGMC[0] - remainingSUs)
+            let totalReqGP = gradCap * (totalGradedMCs) - totalCurGP //Calculate the total amount of GP to achieve with remaining mods
+            //console.log(totalReqGP)
+            reqAvgPerf = totalReqGP / (totalGradedMCs - res.cumMC[0])
             //if unattainable
             if (reqAvgPerf > 5) {
                 reqAvgPerf = null;
@@ -100,6 +101,7 @@ export default class Calculations {
             reqRes = reqRes.push(newRow)
             gradCap += 0.01
         }
+        //reqRes.show() 
         return reqRes.toDict()
     }
 
@@ -131,9 +133,12 @@ export default class Calculations {
 
         for (var combi of combis) {
             let mods = combi.map(mod => mod.moduleCode); 
+            let SuMCs = combi.reduce((acc, mod) => {
+                return parseInt(mod.moduleCredit) + acc
+            }, 0)
             var resultingModList = moduleList.filter(mod => !(mods.includes(mod.moduleCode)));
             //var resultingCumMC = this.getStats(resultingModList).cumMC[0]
-            combinedSim["SU ".concat(mods.join(", "))] = Object.values(this.getReqPerf(resultingModList, 160)).flat();
+            combinedSim["SU ".concat(mods.join(", "))] = Object.values(this.getReqPerf(resultingModList, totalMC, parseInt(remainingSUs) + parseInt(SuMCs))).flat();
             combiStats = combiStats.push(["SU ".concat(mods.join(", ")), 
                                            this.getStats(resultingModList).curCAP[0],
                                            this.getMaxCap(resultingModList, totalMC, remainingSUs), 
@@ -168,7 +173,7 @@ export default class Calculations {
         const totalCurMC = curStats.cumMC[0]; //find current amount of MCs 
         const totalRemainingMCs = totalMC - curStats.cumMC[0] - curStats.cumNGMC[0] - remainingSUs
         var maxCap = (5 * totalRemainingMCs +  totalCurGP) / (totalRemainingMCs + totalCurMC)
-        maxCap = (Math.round(maxCap * 100)/100).toFixed(2)
+        maxCap = (Math.floor(maxCap * 100)/100).toFixed(2)
         if (isNaN(maxCap)) maxCap = ""
         return maxCap
     }
@@ -198,7 +203,7 @@ export default class Calculations {
         var cutOff = []
         combinedSim = new DataFrame(combinedSim, columns) //convert to dataFrame
 
-        for (var cut = 2.0; cut <= 5; cut += 0.5) {
+        for (var cut = 2.0; cut <= 5; cut+= 0.5) {
             cutOff.push((Math.round(cut * 10)/10).toFixed(1))
         }
 
