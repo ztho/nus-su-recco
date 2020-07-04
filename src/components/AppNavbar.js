@@ -14,7 +14,7 @@ export class AppNavbar extends Component {
         return (
             <div>
                <Navbar variant="light" expand="sm" className = "mb-5" style={{backgroundColor: "#05264c"}}>
-                    <NavbarBrand href ="/" style={{color: "#F4F6F8",}}>NUS CAPSIM</NavbarBrand>
+                    <NavbarBrand href ="/" style={{color: "#F4F6F8",}}>NUS SU-CAP Simulator</NavbarBrand>
                 </Navbar> 
             </div>
         )
