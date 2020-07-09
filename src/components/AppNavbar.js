@@ -4,11 +4,11 @@ import {
     NavbarBrand
 } from "reactstrap"; 
 
-const icon = (
+/*const icon = (
     <span class="logo">
         <img src="../../public/defaultIcon.png" />
     </span>
-)
+)*/
 export class AppNavbar extends Component {
     render() {
         return (

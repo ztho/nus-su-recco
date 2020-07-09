@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {clearAll} from "../actions/moduleListActions"
+import {clearAll} from "../../actions/moduleListActions"
 import {connect} from "react-redux"
 import { Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles';

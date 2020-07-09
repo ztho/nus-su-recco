@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import {getModuleList, updateSim} from "../actions/moduleListActions"
-import {getCandData} from "../actions/candidateDataActions";
+import {getModuleList, updateSim} from "../../actions/moduleListActions"
+import {getCandData} from "../../actions/candidateDataActions";
 import {connect} from "react-redux"
 import { Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles';

@@ -224,9 +224,8 @@ class AddModuleForm extends React.Component {
             <TextField
               error = {this.state.errors.isError && this.state.errors.gradeError !== "" }
               select
-              label = "Select"
               name="grade"
-              label ="Grade"
+              label="Grade"
               value={this.state.grade}
               className = "input-field"
               onChange={e => this.change(e)}

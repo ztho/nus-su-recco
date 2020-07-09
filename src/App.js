@@ -6,7 +6,7 @@ import AppNavBar from "./components/AppNavbar";
 import AddKeyData from "./components/AddKeyData";
 import CurrentReportCard from "./components/CurrentReportCard"; 
 import ModuleListTableWrapped from "./components/ModuleListTable/ModuleListTableWrapped";
-import Graphs from "./components/Graphs"; 
+import Graphs from "./components/SimulationGraphs"; 
 import ResultsTable from "./components/ResultsTable";
 import {Grid} from "@material-ui/core"
 //import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'; 

@@ -14,11 +14,10 @@ import { Table,
     Typography,
     Tooltip,
     IconButton,
-    Box, 
     Fade} from "@material-ui/core"
 import ClearIcon from '@material-ui/icons/Clear';
 import DoneIcon from '@material-ui/icons/Done';
-import DownloadSimResultsButton from "./DownloadSimResultsButton"
+import DownloadSimResultsButton from "./CustomizedButtons/DownloadSimResultsButton"
 import ResultsTableModal from "./ResultsTableModal"
 import Calculations from "../calculations/Calculations"
 import DataFrame from "dataframe-js";

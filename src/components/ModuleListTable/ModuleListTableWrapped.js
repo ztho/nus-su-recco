@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import ModuleListTable from "./ModuleListTable"
 import { Card, 
-        CardHeader, 
         CardContent,
         CardActions,
         Grid,
@@ -11,9 +10,9 @@ import { Card,
 import { withStyles } from '@material-ui/styles';
 import AddModuleForm from "../AddModuleForm"
 import ModuleListModal from "../ModuleListModal"
-import ClearAllButton from "../ClearAll"
-import DownloadModuleListButton from "../DownloadModuleListButton"
-import SimulateButton from "../SimulateButton"
+import ClearAllButton from "../CustomizedButtons/ClearAllButton"
+import DownloadModuleListButton from "../CustomizedButtons/DownloadModuleListButton"
+import SimulateButton from "../CustomizedButtons/SimulateButton"
 import {connect} from "react-redux"
 
 const useStyles = {

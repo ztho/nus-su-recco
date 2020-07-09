@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import {getModuleList} from "../actions/moduleListActions"
+import {getModuleList} from "../../actions/moduleListActions"
 import {connect} from "react-redux"
 import { Button, Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles';
 import DataFrame from "dataframe-js";
-import {downloadSimResults} from "../Utilities/DownloadFunctions"
+import {downloadSimResults} from "../../Utilities/DownloadFunctions"
 import GetAppIcon from '@material-ui/icons/GetApp';
 
 const colorSC = "#044289"
