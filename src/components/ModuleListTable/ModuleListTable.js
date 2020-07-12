@@ -143,6 +143,11 @@ class ModuleListTable extends Component {
       errors.isError = true 
       errors.gradeError = "Please Enter Grade"
     }
+
+    //if grade is one of the non-counted grades, it should not be allowed to consider SU
+    if (nonCountedGrades.indexOf(mod.grade) >= 0) {
+      this.props.updateModuleList("su", i, false)
+    }
     return errors  
   }
   
@@ -164,7 +169,7 @@ class ModuleListTable extends Component {
               {y.prop === "su" ? 
               <Checkbox 
                 color = "primary" 
-                disabled= {nonCountedGrades.indexOf(mod.grade) >= 0}
+                disabled={nonCountedGrades.indexOf(mod.grade) >= 0}
                 name ={y.prop} 
                 value = {(mod[y.prop])} 
                 checked = {(mod[y.prop])}

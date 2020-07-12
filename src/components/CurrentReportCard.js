@@ -57,12 +57,24 @@ export class CurrentReportCard extends Component {
                         <Grid container justify = "space-between" alignItems="center">
                             <Grid item>
                                 <Typography display = "inline" color = "textSecondary" gutterBottom variant={"body1"} align="left" className={classes.mainPoint}>
-                                Current Cap
+                                Current CAP
                                 </Typography>
                             </Grid>
                             <Grid item> 
                                 <Typography display = "inline" color = "primary" className={classes.mainPoint} gutterBottom variant={"h4"} align="left">
                                 {curStats.curCAP[0]}
+                                </Typography>
+                            </Grid>
+                        </Grid>
+                        <Grid container justify = "space-between" alignItems="center"> 
+                            <Grid item >
+                                <Typography display = "inline" color = "textSecondary" gutterBottom variant={"body2"} align="left" className={classes.subPoint}>
+                                Total MCs Completed
+                                </Typography>
+                            </Grid>
+                            <Grid item> 
+                                <Typography display="inline" variant={"h6"} align="right" className={classes.subPoint}> 
+                                {hasCandData ? curStats.cumMC[0] + curStats.cumNGMC[0] : null } 
                                 </Typography>
                             </Grid>
                         </Grid>
